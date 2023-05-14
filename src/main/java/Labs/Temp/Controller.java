@@ -1,6 +1,5 @@
 package Labs.Temp;
 
-
 import Labs.Temp.models.CalculationResult;
 import Labs.Temp.models.ParametersKey;
 import Labs.Temp.service.CalculationService;
@@ -17,13 +16,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Validated
 @RestController("/Figure")
-@SpringBootApplication
 
 @RequestMapping("/Param")
 public class Controller {
-    public static void main(String[] args) {
-        SpringApplication.run(Controller.class, args);
-    }
 
     private final CalculationService calculationService;
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
@@ -40,7 +35,6 @@ public class Controller {
         if(height == 5) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ValidationController.ValidationErrorConstants.BadArguments);
         }
-
         //отлавливание ошибки 500
         if(height == 8) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,  ValidationController.ValidationErrorConstants.ServerError);
