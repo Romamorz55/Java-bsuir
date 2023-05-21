@@ -9,8 +9,9 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class CalculationService {
-    public CalculationResult calcAndBuildResult(ParametersKey parametersKey){
+    public CalculationResult calcAndBuildResult(ParametersKey parametersKey) {
         return new CalculationResult(calcPerimeter(parametersKey.getRectangleWidth(),parametersKey.getRectangleHeight()),calcSquare(parametersKey.getRectangleWidth(),parametersKey.getRectangleHeight()));
+
     }
     public int calcPerimeter(int width, int height){
         return 2 * width + 2 * height;
