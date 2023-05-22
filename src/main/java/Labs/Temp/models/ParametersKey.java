@@ -1,15 +1,19 @@
 package Labs.Temp.models;
 
 
+import Labs.Temp.exception.InvalidParametersException;
+
 import java.io.Serializable;
 import java.util.Objects;
 
 public class ParametersKey implements Serializable {
 
     private int rectangleWidth;
-
     private int rectangleHeight;
     public ParametersKey(int width, int height){
+        if(width <= 0 || height <= 0){
+            throw new InvalidParametersException("width/height cannot be lower or equal to zero");
+        }
         this.rectangleHeight = height;
         this.rectangleWidth = width;
     }

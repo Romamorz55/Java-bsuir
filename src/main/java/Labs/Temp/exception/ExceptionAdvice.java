@@ -19,9 +19,7 @@ public class ExceptionAdvice {
     public ResponseEntity<Object> handleException(ResponseStatusException ex) {
         var errorModel = new ErrorData();
         errorModel.message = ex.getReason();
-
         log.info("Exception: " + ex.getMessage());
-
         ResponseEntity responseEntity = new ResponseEntity<>(errorModel, ex.getStatusCode());
         return responseEntity;
     }
